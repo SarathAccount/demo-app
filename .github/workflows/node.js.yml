@@ -80,12 +80,12 @@ jobs:
         run: kubectl get pods     
       - name: Deploy app to minikube
         run: |
-          cd kubernetes
+          cd k8s
           kubectl apply -f deployment.yaml
           kubectl get all
       - name: Url Check
         run: |
           minikube service list
           curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok
-                  ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
-                  ngrok http 192.168.49.2:30000          
+          ngrok config add-authtoken ${{ secrets.NGROK_AUTHTOKEN }}
+          ngrok http 192.168.49.2:30000          
