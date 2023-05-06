@@ -6,10 +6,8 @@ WORKDIR /usr/local/app
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
-RUN rm -rf /usr/share/nginx/html/*
-
 COPY  ./.next /usr/share/nginx/html
 
-EXPOSE 3000 80
+EXPOSE 80
 
-CMD ["npm", "run dev"]
+CMD ["nginx", "-g", "daemon off;"]
