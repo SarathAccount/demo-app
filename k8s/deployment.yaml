@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: demo
-        image: ghcr.io/charlescboucher/my-react-app:main
+        image: ghcr.io/sarathaccount/demo-app:main
         ports:
         - containerPort: 3000
 ---
